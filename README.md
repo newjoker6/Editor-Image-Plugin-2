@@ -3,8 +3,13 @@
 
 
 ## To Change the Image
-To change the image shown on your background, simply open up the addons folder and replace the Background.png file with another png of your choosing. Be sure to name it Background.png to be
-recognized. Opacity will be handled by the code so no need to change this in your image. 
+To change the image shown on your background, simply use one of the following methods:
+<br>
+1. Head up to Project > Tools > Change Background
+2. Use the docked background options and press teh change background button
+3. Paste in a directory on your computer with images and hit the random button
+<br><br>
+Make sure to hit the save button to save your settings between sessions
 
 
 

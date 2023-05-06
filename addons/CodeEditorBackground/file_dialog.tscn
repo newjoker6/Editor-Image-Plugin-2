@@ -2,7 +2,7 @@
 
 [node name="FileDialog" type="FileDialog"]
 initial_position = 2
-title = "Open a File"
+title = "Choose an Image"
 size = Vector2i(392, 162)
 visible = true
 ok_button_text = "Open"
