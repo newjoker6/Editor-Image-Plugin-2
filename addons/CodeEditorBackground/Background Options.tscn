@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://7wnh3veoihvu"]
+[gd_scene load_steps=3 format=3 uid="uid://7wnh3veoihvu"]
 
 [ext_resource type="Script" path="res://addons/CodeEditorBackground/BackgroundOptions.gd" id="1_jolqk"]
+[ext_resource type="Texture2D" uid="uid://l5dhp3lg71ob" path="res://addons/CodeEditorBackground/save.png" id="2_3cvy5"]
 
 [node name="BackgroundOptions" type="Control"]
 layout_mode = 3
@@ -12,42 +13,44 @@ grow_vertical = 2
 script = ExtResource("1_jolqk")
 
 [node name="Opacity" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 2
+offset_left = 8.0
 offset_top = 40.0
-offset_right = 97.0
+offset_right = 68.0
 offset_bottom = 66.0
 text = "Opacity"
 
 [node name="HSlider" type="HSlider" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_left = 128.0
-offset_top = 40.0
-offset_right = 436.0
+offset_top = 48.0
+offset_right = 384.0
 offset_bottom = 64.0
 max_value = 255.0
 value = 30.0
 
 [node name="BarValue" type="Label" parent="."]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 16.0
-offset_right = 176.0
-offset_bottom = 42.0
+layout_mode = 2
+offset_left = 128.0
+offset_top = 8.0
+offset_right = 180.0
+offset_bottom = 34.0
 text = "30"
 
 [node name="StretchMode" type="Label" parent="."]
-layout_mode = 0
-offset_top = 104.0
-offset_right = 104.0
-offset_bottom = 130.0
+layout_mode = 2
+offset_left = 8.0
+offset_top = 100.0
+offset_right = 112.0
+offset_bottom = 126.0
 text = "Stretch Mode"
 
 [node name="StretchOptions" type="OptionButton" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_left = 128.0
-offset_top = 104.0
+offset_top = 96.0
 offset_right = 436.0
-offset_bottom = 135.0
+offset_bottom = 127.0
 item_count = 7
 selected = 6
 popup/item_0/text = "STRETCH_SCALE"
@@ -66,47 +69,52 @@ popup/item_6/text = "STRETCH_KEEP_ASPECT_COVERED"
 popup/item_6/id = 6
 
 [node name="RandomLabel" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 2
+offset_left = 19.0
 offset_top = 232.0
-offset_right = 162.0
+offset_right = 181.0
 offset_bottom = 258.0
 text = "Random Background"
 
 [node name="FolderLabel" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 2
+offset_left = 16.0
 offset_top = 296.0
-offset_right = 49.0
+offset_right = 65.0
 offset_bottom = 322.0
 text = "Folder"
 
 [node name="DirectoryLine" type="LineEdit" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_left = 128.0
 offset_top = 288.0
-offset_right = 436.0
+offset_right = 387.0
 offset_bottom = 319.0
+caret_blink = true
+caret_blink_interval = 0.5
 
 [node name="RandomButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 208.0
+layout_mode = 2
+offset_left = 128.0
 offset_top = 352.0
-offset_right = 331.0
+offset_right = 251.0
 offset_bottom = 383.0
 text = "Select Random"
 
 [node name="SaveButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 544.0
-offset_right = 446.0
-offset_bottom = 575.0
-text = "Save Settings"
+layout_mode = 2
+offset_left = 8.0
+offset_right = 40.0
+offset_bottom = 32.0
+icon = ExtResource("2_3cvy5")
+flat = true
+expand_icon = true
 
 [node name="ChangeBackgroundButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 128.0
+layout_mode = 2
+offset_left = 136.0
 offset_top = 160.0
-offset_right = 446.0
+offset_right = 299.0
 offset_bottom = 191.0
 text = "Change Background"
 
