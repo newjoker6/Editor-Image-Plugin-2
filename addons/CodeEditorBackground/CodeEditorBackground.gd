@@ -18,8 +18,10 @@ var UserData : Dictionary = {
 	"mode": 6,
 	"OpacityValue": 30
 }
+var Version: Dictionary = {}
 
 func _enter_tree() -> void:
+	Version = Engine.get_version_info()
 	get_editor_interface().get_script_editor().connect("editor_script_changed", Callable(self, "changed"))
 	get_editor_interface().get_script_editor().connect("resized", Callable(self, "ResizeBackground"))
 	add_tool_menu_item("Change Background", Callable(self, "ShowWindow"))
@@ -40,14 +42,23 @@ func _exit_tree() -> void:
 	cse = get_editor_interface().get_script_editor().get_open_script_editors()
 	remove_control_from_docks(at_inst)
 	for all in cse:
-		se = all.get_child(0).get_child(0).get_child(0)
+		if Version["major"] == 4 and Version["minor"] >= 5:
+			se = all.get_child(1).get_child(0).get_child(0)
+		else:
+			se = all.get_child(0).get_child(0).get_child(0)
+		
 		if se.get_child_count() >= 1:
 			se.get_child(0).queue_free()
 
 
 func changed(script: Script) -> void:
 	cse = get_editor_interface().get_script_editor().get_current_editor()
-	se = cse.get_child(0).get_child(0).get_child(0)
+	
+	if Version["major"] == 4 and Version["minor"] >= 5:
+		se = cse.get_child(1).get_child(0).get_child(0)
+	else:
+		se = cse.get_child(0).get_child(0).get_child(0)
+
 	var bg = TextureRect.new()
 	
 	if UserData["userBackground"]:
@@ -62,7 +73,7 @@ func changed(script: Script) -> void:
 	bg.set_stretch_mode(UserData["mode"])
 	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	bg.self_modulate = Color("ffffff" + UserData["userTransparency"])
-	bg.size = cse.get_child(0).get_child(0).get_child(0).size
+	bg.size = cse.get_child(1).get_child(0).get_child(0).size
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	if se.get_child_count() >= 1:
@@ -127,7 +138,3 @@ func LoadData() -> void:
 
 func setLoadedData() -> void:
 	emit_signal("setData", UserData)
-
-
-
-
